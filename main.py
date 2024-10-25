@@ -11,16 +11,22 @@ def fibonacci(n):
 
 
 def process_data(data):
-    # Generate Fibonacci numbers and filter for values less than 1000
-    fib_data = fibonacci(max(data))
+    # Increase the size of the Fibonacci sequence generated
+    fib_data = fibonacci(10000)  # Generate the first 10,000 Fibonacci numbers
     filtered_data = [x for x in fib_data if x < 1000]
 
-    # Calculate the product of the filtered Fibonacci numbers
+    # Simulate an intensive computation: calculating the product of filtered numbers
     product = 1
     for number in filtered_data:
         product *= number
 
-    return product
+    # Introduce an additional computation to increase runtime
+    # For example, let's sort the filtered data and find the sum
+    sorted_filtered_data = sorted(filtered_data)
+    total_sum = sum(sorted_filtered_data)
+
+    # Return both product and sum for added complexity
+    return product, total_sum
 
 
 def get_memory_usage():
@@ -47,5 +53,5 @@ def measure_performance(x):
 
 
 if __name__ == "__main__":
-    data_input = list(range(1, 20))  # Adjusted range for Fibonacci numbers
+    data_input = list(range(1, 20))  # Input remains the same
     measure_performance(data_input)

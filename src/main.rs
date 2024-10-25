@@ -1,12 +1,19 @@
 use std::time::Instant;
-use fibonacci_performance::{process_data};
 
 fn main() {
-    let data_input = (1..20).collect::<Vec<_>>(); // Create a vector of integers from 1 to 19
+    // Start the timer
     let start_time = Instant::now();
-    let result = process_data(&data_input);
+
+    // Call process_data without passing any arguments
+    let (product, total_sum) = fibonacci_performance::process_data();
+
+    // Measure the elapsed time
     let elapsed_time = start_time.elapsed();
 
-    println!("Processed Result: {}", result);
-    println!("Running Time: {:?}", elapsed_time);
+    // Output the results
+    println!(
+        "Processed Result: Product = {}, Total Sum = {}",
+        product, total_sum
+    );
+    println!("Running Time: {:.6?} seconds", elapsed_time); // Format elapsed time
 }
