@@ -11,21 +11,28 @@ def fibonacci(n):
 
 
 def process_data(data):
-    # Increase the size of the Fibonacci sequence generated
-    fib_data = fibonacci(10000)  # Generate the first 10,000 Fibonacci numbers
-    filtered_data = [x for x in fib_data if x < 1000]
+    max_value = max(data, default=0)  # Get the maximum value from data
+    fib_data = fibonacci(max_value)  # Generate Fibonacci numbers up to max_value
 
-    # Simulate an intensive computation: calculating the product of filtered numbers
+    # Filter Fibonacci numbers to only include those less than the maximum value in data
+    filtered_data = [x for x in fib_data if x < max_value]
+
+    # Debugging output
+    print(f"Fibonacci Numbers: {fib_data}")
+    print(f"Filtered Data: {filtered_data}")
+
+    # Calculate the product of the filtered Fibonacci numbers
     product = 1
     for number in filtered_data:
         product *= number
+    if not filtered_data:  # If no filtered data, set product to 0
+        product = 0
 
-    # Introduce an additional computation to increase runtime
-    # For example, let's sort the filtered data and find the sum
-    sorted_filtered_data = sorted(filtered_data)
-    total_sum = sum(sorted_filtered_data)
+    # Calculate the sum of the filtered Fibonacci numbers
+    total_sum = sum(filtered_data)
 
-    # Return both product and sum for added complexity
+    print(f"Product: {product}, Total Sum: {total_sum}")
+
     return product, total_sum
 
 
