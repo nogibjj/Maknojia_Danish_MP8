@@ -42,11 +42,11 @@ def get_memory_usage():
     return mem_info.rss / 1024**2  # Convert bytes to MB
 
 
-# Measure the running time and memory usage
-def measure_performance(x):
+def measure_performance(input_data):
+    """Measures the running time and memory usage for processing data."""
     initial_memory = get_memory_usage()
     start_time = time.time()
-    result = process_data(x)
+    result = process_data(input_data)
     end_time = time.time()
     final_memory = get_memory_usage()
 
@@ -58,7 +58,41 @@ def measure_performance(x):
     print(f"Running Time: {runtime:.6f} seconds")
     print(f"Memory Usage: {memory_used:.6f} MB")
 
+    return result, runtime, memory_used
+
+
+def generate_markdown(data_input, memory_used, runtime, result):
+    """Generates and writes the Markdown content to a file."""
+    # Create Markdown content
+    markdown_content = f"""# Performance Analysis of Fibonacci Data Processing
+
+## Overview
+
+This document details the performance analysis of a Python program that processes Fibonacci numbers. 
+The program computes a product and sum of filtered Fibonacci numbers for a given input set and measures the execution time and memory usage.
+
+## Input Data
+
+The input data used for the test is a list of integers:
+
+```python
+
+    data_input = {data_input}
+    memory_usage = {memory_used}
+    runtime = {runtime}
+    results = {result}
+
+    
+
+    """
+
+    with open("performance_analysis2.md", "w", encoding="utf-8") as file:
+        file.write(markdown_content)
+
+    print("Markdown file 'performance_analysis2.md' generated successfully.")
+
 
 if __name__ == "__main__":
-    data_input = list(range(1, 20))  # Input remains the same
-    measure_performance(data_input)
+    performance_data = list(range(1, 20))
+    processed_result, exec_runtime, mem_usage = measure_performance(performance_data)
+    generate_markdown(performance_data, mem_usage, exec_runtime, processed_result)

@@ -9,4 +9,5 @@ name = "fibonacci_performance"
 crate-type = ["lib", "cdylib"]
 
 [dependencies]
-sysinfo = "0.32"
+sysinfo = "0.24"
+systemstat = "0.1"
