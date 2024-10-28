@@ -2,8 +2,22 @@
 
 [![CI](https://github.com/nogibjj/Maknojia_Danish_MP8/actions/workflows/pythoncicd.yml/badge.svg)](https://github.com/nogibjj/Maknojia_Danish_MP8/actions/workflows/pythoncicd.yml)
 
-# Performance Comparison: Rust vs. Python for Fibonacci Data Processing
 
+# Analysis of the Python Fibonacci Data Processing Code
+
+## Overview
+This Python & Rust code aims to process a series of Fibonacci numbers based on input data and measures the program's performance in terms of execution time and memory usage. It generates Fibonacci numbers, filters them, calculates their product and sum, and outputs the performance data in a Markdown file.
+
+## Performance Considerations
+- **Memory Usage**: The program captures memory usage before and after data processing to calculate the memory overhead of generating and filtering the Fibonacci sequence.
+- **Execution Time**: Measures the time taken to process the input data, which can vary based on the size of the input list and the maximum value used for generating the Fibonacci sequence.
+- **Input Data Flexibility**: The `process_data` function's approach of generating Fibonacci numbers up to the maximum value in the input ensures that the sequence is only as large as necessary.
+
+## Conclusion
+The code is efficient for generating and analyzing Fibonacci sequences up to a specified range and provides insights into its memory and time efficiency. It is suitable for small-scale data processing tasks, while the markdown generation adds value by documenting the performance analysis for future reference.
+
+
+# Performance Comparison: Rust vs. Python for Fibonacci Data Processing
 
 ## Input Data
 ```text
