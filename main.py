@@ -39,7 +39,7 @@ def process_data(data):
 def get_memory_usage():
     process = psutil.Process()
     mem_info = process.memory_info()
-    return mem_info.rss / 1024**2  # Convert bytes to MB
+    return mem_info.rss
 
 
 def measure_performance(input_data):
@@ -56,7 +56,7 @@ def measure_performance(input_data):
 
     print(f"Processed Result: {result}")
     print(f"Running Time: {runtime:.6f} seconds")
-    print(f"Memory Usage: {memory_used:.6f} MB")
+    print(f"Memory Usage: {memory_used:.6f} Bytes")
 
     return result, runtime, memory_used
 
